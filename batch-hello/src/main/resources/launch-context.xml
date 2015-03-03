@@ -29,6 +29,5 @@
 		p:dataSource-ref="dataSource" p:transactionManager-ref="transactionManager" 
 	/>
 
-
 	
 </beans>

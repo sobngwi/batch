@@ -10,29 +10,10 @@
                     http://www.springframework.org/schema/batch 
                     http://www.springframework.org/schema/batch/spring-batch-3.0.xsd"> 
 	
+    <beans:import resource="../db/databases.xml"/> 
     <beans:import resource="../launch-context.xml"/> 
 
-	<beans:bean id="placeholderProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<beans:property name="location" value="classpath:batch.properties" />
-		<beans:property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-		<beans:property name="ignoreUnresolvablePlaceholders" value="true" />
-		<beans:property name="order" value="1" />
-	</beans:bean>
-
-    <beans:bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-    <beans:property name="driverClassName" value="${batch.jdbc.driver}"/> 
-    <beans:property name="url" value="${batch.jdbc.url}" />
-    <beans:property name="username" value="${batch.jdbc.user}" />
-    <beans:property name="password" value="${batch.jdbc.password}" />
-    <beans:property name="initialSize" value="5" />
-    <beans:property name="maxActive" value="10" />
-    <beans:property name="maxIdle" value="5" />
-    <beans:property name="minIdle" value="2" />
-    </beans:bean>
-
-	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" lazy-init="true">
-		<beans:property name="dataSource" ref="dataSource" />
-	</beans:bean>
+	
 	
     <!-- The step definition for the helloWorldJob -->
     <step id="helloWorldStep"> 
@@ -41,7 +22,6 @@
     <!-- The bean that does the work of the job -->
     <beans:bean id="helloWorld" 
                          class="org.sobngwi.springbatch.hello.HelloWorld"/> 
-
     <!-- The job definition for the helloWorldJob -->
     <job id="helloWorldJob"> 
         <step id="step1" parent="helloWorldStep"/> 
