@@ -1,0 +1,31 @@
+// dot 2.36.0 on Mac OS X 10.10.2
+// SchemaSpy rev 590
+digraph "BATCH_STEP_EXECUTION_SEQ" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "BATCH_STEP_EXECUTION_SEQ" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">BATCH_STEP_EXECUTION_SEQ</TD></TR>
+      <TR><TD PORT="ID" COLSPAN="3" ALIGN="LEFT">ID</TD></TR>
+      <TR><TD PORT="UNIQUE_KEY" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">UNIQUE_KEY</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">1 row</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/BATCH_STEP_EXECUTION_SEQ.html"
+    tooltip="BATCH_STEP_EXECUTION_SEQ"
+  ];
+}

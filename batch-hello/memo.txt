@@ -1,0 +1,80 @@
+mysql> create database spring_batch_test;
+Query OK, 1 row affected (0,00 sec)
+
+mysql> show databases ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| spring_batch_test  |
+| test               |
+| webscope           |
++--------------------+
+6 rows in set (0,00 sec)
+
+mysql> use spring_batch_test;
+Database changed
+mysql> source spring-batch-core/src/main/resources/org/springframework/batch/core/schema-mysql.sql
+Query OK, 0 rows affected (0,01 sec)
+
+Query OK, 0 rows affected (0,00 sec)
+
+Query OK, 0 rows affected (0,01 sec)
+
+Query OK, 0 rows affected (0,01 sec)
+
+Query OK, 0 rows affected (0,01 sec)
+
+Query OK, 0 rows affected (0,00 sec)
+
+Query OK, 0 rows affected (0,01 sec)
+
+Query OK, 1 row affected (0,00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0,01 sec)
+
+Query OK, 1 row affected (0,00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0,00 sec)
+
+Query OK, 1 row affected (0,00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> commit
+    -> ;
+Query OK, 0 rows affected (0,00 sec)
+
+mysql> show tables ;
++------------------------------+
+| Tables_in_spring_batch_test  |
++------------------------------+
+| BATCH_JOB_EXECUTION          |
+| BATCH_JOB_EXECUTION_CONTEXT  |
+| BATCH_JOB_EXECUTION_PARAMS   |
+| BATCH_JOB_EXECUTION_SEQ      |
+| BATCH_JOB_INSTANCE           |
+| BATCH_JOB_SEQ                |
+| BATCH_STEP_EXECUTION         |
+| BATCH_STEP_EXECUTION_CONTEXT |
+| BATCH_STEP_EXECUTION_SEQ     |
++------------------------------+
+9 rows in set (0,00 sec)
+
+mysql> 
+mysql> GRANT ALL PRIVILEGES ON spring_batch_test.* TO orm@localhost IDENTIFIED BY 'orm';
+Query OK, 0 rows affected (0,00 sec)
+
+
+
+
+package install :
+ mvn clean  install
+Go to the target dir :
+java   -jar hello-world-0.0.1-SNAPSHOT.jar jobs/helloWorld.xml helloWorldJob
+
+new :
+java   -jar batch-hello-1.0.0-SNAPSHOT.jar  jobs/helloWorld.xml helloWorldJob

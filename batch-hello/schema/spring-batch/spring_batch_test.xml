@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="jdbc:mysql://localhost:3306/spring_batch_test" type="MySQL - 5.6.23">
+   <tables>
+      <table name="BATCH_JOB_EXECUTION" numRows="5" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="JOB_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <child column="JOB_EXECUTION_ID" foreignKey="JOB_EXEC_CTX_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_EXECUTION_CONTEXT"/>
+            <child column="JOB_EXECUTION_ID" foreignKey="JOB_EXEC_PARAMS_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_EXECUTION_PARAMS"/>
+            <child column="JOB_EXECUTION_ID" foreignKey="JOB_EXEC_STEP_FK" implied="false" onDeleteCascade="false" table="BATCH_STEP_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="VERSION" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="2" name="JOB_INSTANCE_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent column="JOB_INSTANCE_ID" foreignKey="JOB_INST_EXEC_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_INSTANCE"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="CREATE_TIME" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="4" name="START_TIME" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="END_TIME" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="6" name="STATUS" nullable="true" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="EXIT_CODE" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="EXIT_MESSAGE" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="LAST_UPDATED" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="10" name="JOB_CONFIGURATION_LOCATION" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <primaryKey column="JOB_EXECUTION_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="JOB_EXECUTION_ID"/>
+         </index>
+         <index name="JOB_INST_EXEC_FK" unique="false">
+            <column ascending="true" name="JOB_INSTANCE_ID"/>
+         </index>
+      </table>
+      <table name="BATCH_JOB_EXECUTION_CONTEXT" numRows="5" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="JOB_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent column="JOB_EXECUTION_ID" foreignKey="JOB_EXEC_CTX_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="SHORT_CONTEXT" nullable="false" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="SERIALIZED_CONTEXT" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <primaryKey column="JOB_EXECUTION_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="JOB_EXECUTION_ID"/>
+         </index>
+      </table>
+      <table name="BATCH_JOB_EXECUTION_PARAMS" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="JOB_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent column="JOB_EXECUTION_ID" foreignKey="JOB_EXEC_PARAMS_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="TYPE_CD" nullable="false" remarks="" size="6" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="KEY_NAME" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="STRING_VAL" nullable="true" remarks="" size="250" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="DATE_VAL" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="LONG_VAL" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="6" name="DOUBLE_VAL" nullable="true" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="7" name="IDENTIFYING" nullable="false" remarks="" size="1" type="CHAR"/>
+         <index name="JOB_EXEC_PARAMS_FK" unique="false">
+            <column ascending="true" name="JOB_EXECUTION_ID"/>
+         </index>
+      </table>
+      <table name="BATCH_JOB_EXECUTION_SEQ" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="ID" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="UNIQUE_KEY" nullable="false" remarks="" size="1" type="CHAR"/>
+         <index name="UNIQUE_KEY_UN" unique="true">
+            <column ascending="true" name="UNIQUE_KEY"/>
+         </index>
+      </table>
+      <table name="BATCH_JOB_INSTANCE" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="JOB_INSTANCE_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <child column="JOB_INSTANCE_ID" foreignKey="JOB_INST_EXEC_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="VERSION" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="2" name="JOB_NAME" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="JOB_KEY" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <primaryKey column="JOB_INSTANCE_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="JOB_INSTANCE_ID"/>
+         </index>
+         <index name="JOB_INST_UN" unique="true">
+            <column ascending="true" name="JOB_NAME"/>
+            <column ascending="true" name="JOB_KEY"/>
+         </index>
+      </table>
+      <table name="BATCH_JOB_SEQ" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="ID" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="UNIQUE_KEY" nullable="false" remarks="" size="1" type="CHAR"/>
+         <index name="UNIQUE_KEY_UN" unique="true">
+            <column ascending="true" name="UNIQUE_KEY"/>
+         </index>
+      </table>
+      <table name="BATCH_STEP_EXECUTION" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="STEP_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <child column="STEP_EXECUTION_ID" foreignKey="STEP_EXEC_CTX_FK" implied="false" onDeleteCascade="false" table="BATCH_STEP_EXECUTION_CONTEXT"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="VERSION" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="2" name="STEP_NAME" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="JOB_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent column="JOB_EXECUTION_ID" foreignKey="JOB_EXEC_STEP_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="START_TIME" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="END_TIME" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="6" name="STATUS" nullable="true" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="COMMIT_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="8" name="READ_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="9" name="FILTER_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="10" name="WRITE_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="11" name="READ_SKIP_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="12" name="WRITE_SKIP_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="13" name="PROCESS_SKIP_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="14" name="ROLLBACK_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="15" name="EXIT_CODE" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="EXIT_MESSAGE" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="LAST_UPDATED" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="STEP_EXECUTION_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="STEP_EXECUTION_ID"/>
+         </index>
+         <index name="JOB_EXEC_STEP_FK" unique="false">
+            <column ascending="true" name="JOB_EXECUTION_ID"/>
+         </index>
+      </table>
+      <table name="BATCH_STEP_EXECUTION_CONTEXT" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="STEP_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent column="STEP_EXECUTION_ID" foreignKey="STEP_EXEC_CTX_FK" implied="false" onDeleteCascade="false" table="BATCH_STEP_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="SHORT_CONTEXT" nullable="false" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="SERIALIZED_CONTEXT" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <primaryKey column="STEP_EXECUTION_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="STEP_EXECUTION_ID"/>
+         </index>
+      </table>
+      <table name="BATCH_STEP_EXECUTION_SEQ" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="ID" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="UNIQUE_KEY" nullable="false" remarks="" size="1" type="CHAR"/>
+         <index name="UNIQUE_KEY_UN" unique="true">
+            <column ascending="true" name="UNIQUE_KEY"/>
+         </index>
+      </table>
+   </tables>
+</database>
