@@ -56,163 +56,170 @@
     <hsqldb.version>1.8.0.10</hsqldb.version>
     <aspectj.version>1.5.4</aspectj.version>
     <commons-io.version>1.4</commons-io.version>
+    <commons-lang.version>2.3</commons-lang.version>
     <log4j.version>1.2.17</log4j.version>
     </properties>
   
     <modules>
     <module>batch-hello</module>
+    <module>sampleJob</module>
     </modules>
     
     <dependencyManagement>
        <dependencies>
-       <dependency>
+           <dependency>
 			<groupId>org.springframework.batch</groupId>
 			<artifactId>spring-batch-core</artifactId>
 			<version>${spring.batch.version}</version>
-		</dependency>
+	   </dependency>
 	   <dependency>
 			<groupId>org.springframework.batch</groupId>
 			<artifactId>spring-batch-infrastructure</artifactId>
 			<version>${spring.batch.version}</version>
-		</dependency>
+           </dependency>
 	   <dependency>
 			<groupId>org.springframework.batch</groupId>
 			<artifactId>spring-batch-test</artifactId>
 			<version>${spring.batch.version}</version>
 			<scope>test</scope>
-		</dependency>
-       <dependency>
+       	 </dependency>
+         <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+       </dependency>
        <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-core</artifactId>
           <version>${spring.version}</version>
       </dependency>
-       <dependency>
+      <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-context</artifactId>
           <version>${spring.version}</version>
       </dependency>
-       <dependency>
+      <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-context-support</artifactId>
           <version>${spring.version}</version>
       </dependency>
-       <dependency>
+      <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-orm</artifactId>
           <version>${spring.version}</version>
       </dependency>
-       <dependency>
+      <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-aop</artifactId>
 	  <version>${spring.version}</version>
       </dependency>
-       <dependency>
+      <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-aspects</artifactId>
   	  <version>${spring.version}</version>
       </dependency>
-       <dependency>
+      <dependency>
           <groupId>org.springframework.data</groupId>
           <artifactId>spring-data-jpa</artifactId>
 	  <version>${spring.data.jpa.version}</version>
       </dependency>
      
-	   <dependency>
+      <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 			<scope>test</scope>
-	  </dependency>
-	   <dependency>
+     </dependency>
+     <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.4</version>
 			<scope>test</scope>
-		</dependency>
+    </dependency>
       <!-- Logs -->
-        <dependency>
+    <dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j-log4j12.version}</version>
 			<optional>true</optional>
-		</dependency>
-	    <dependency>
+   </dependency>
+   <dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 			<optional>true</optional>
-		</dependency>
-        <dependency>
+  </dependency>
+  <dependency>
           <groupId>com.h2database</groupId>
           <artifactId>h2</artifactId>
           <version>${h2.version}</version>
-      </dependency>
-        <dependency>
+  </dependency>
+  <dependency>
           <groupId>org.hibernate.javax.persistence</groupId>
           <artifactId>hibernate-jpa-2.1-api</artifactId>
           <version>${jpa.version}</version>
-      </dependency>
-        <dependency>
+  </dependency>
+  <dependency>
           <groupId>org.hibernate</groupId>
           <artifactId>hibernate-entitymanager</artifactId>
           <version>${hibernate.entitymanager.version}</version>
-       </dependency>
-        <dependency>
+  </dependency>
+  <dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-envers</artifactId>
 		<version>${hibernate.entitymanager.version}</version>
-      </dependency>
-        <dependency>
+  </dependency>
+  <dependency>
           <groupId>com.google.guava</groupId>
           <artifactId>guava</artifactId>
           <version>${google.guava.version}</version>
-      </dependency>
-        <dependency>
+  </dependency>
+  <dependency>
           <groupId>org.jadira.usertype</groupId>
           <artifactId>usertype.core</artifactId>
           <version>${usertype.version}</version>
-      </dependency>
-        <dependency>
+  </dependency>
+  <dependency>
           <groupId>joda-time</groupId>
           <artifactId>joda-time</artifactId>
           <version>${joda.time.version}</version>
-      </dependency>
-        <dependency>
+  </dependency>
+  <dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${aspectj.version}</version>
-		</dependency>
-		<dependency>
+  </dependency>
+  <dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
-		</dependency>
-		<dependency>
-     	<groupId>org.apache.tomcat</groupId>
+  </dependency>
+  <dependency>
+  <groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jdbc</artifactId>
 			<version>${tomcat.pool.version}</version>
-		</dependency>
-		<dependency>
+  </dependency>
+  <dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>${commons-io.version}</version>
-		</dependency>
-		<dependency>
+  </dependency>
+  <dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector-java.version}</version>
-		</dependency>
-		<dependency>
+  </dependency>
+  <dependency>
 			<groupId>hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-		<version>${hsqldb.version}</version>
-		</dependency>
-		</dependencies>
+			<version>${hsqldb.version}</version>
+  </dependency>
+  <dependency>
+                    <groupId>commons-lang</groupId>
+                    <artifactId>commons-lang</artifactId>
+                    <version>${commons-lang.version}</version>
+  </dependency>
+  </dependencies>
   </dependencyManagement>
 
 </project>
