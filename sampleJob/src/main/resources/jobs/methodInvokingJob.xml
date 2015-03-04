@@ -10,7 +10,7 @@
 
     <beans:import resource="../launch-context.xml"/>
 
-	<beans:bean id="service" class="com.apress.springbatch.chapter4.ChapterFourService"/>
+	<beans:bean id="service" class="org.sobngwi.springbatch.sampleJob.ChapterFourService"/>
 	
 	<beans:bean id="methodInvokingTaskletAdapter" class="org.springframework.batch.core.step.tasklet.MethodInvokingTaskletAdapter" scope="step">
 		<beans:property name="targetObject" ref="service"/>

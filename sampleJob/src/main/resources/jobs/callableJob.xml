@@ -10,7 +10,7 @@
 
     <beans:import resource="../launch-context.xml"/>
 
-	<beans:bean id="callableObject" class="com.apress.springbatch.chapter4.CallableLogger"/>
+	<beans:bean id="callableObject" class="org.sobngwi.springbatch.sampleJob.CallableLogger"/>
 	
 	<beans:bean id="callableTaskletAdapter" class="org.springframework.batch.core.step.tasklet.CallableTaskletAdapter">
 		<beans:property name="callable" ref="callableObject"/>
