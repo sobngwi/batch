@@ -1,0 +1,1 @@
+java -jar statement-job1-1.0.0-SNAPSHOT.jar  jobs/statementJob.xml statementJob
