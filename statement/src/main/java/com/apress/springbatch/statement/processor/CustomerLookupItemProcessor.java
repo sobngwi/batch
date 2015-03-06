@@ -50,14 +50,15 @@ public class CustomerLookupItemProcessor implements
 	}
 
 	private void updateTicker(Transaction curItem) {
-		Ticker ticker = tickerDao.findTickerBySymbol(curItem.getTicker());
-		if (ticker == null) {
-			Ticker newTicker = new Ticker();
-			newTicker.setTicker(curItem.getTicker());
+		//Ticker ticker = tickerDao.findTickerBySymbol(curItem.getTicker());
+		Ticker newTicker = curItem.getTicker() ;
+		if (newTicker == null) {
+			//Ticker newTicker = new Ticker();
+			//newTicker.setTicker(curItem.getTicker());
 			tickerDao.saveTicker(newTicker);
-			ticker = tickerDao.findTickerBySymbol(curItem.getTicker());
+			//ticker = tickerDao.findTickerBySymbol(curItem.getTicker());
 		}
-		curItem.setTickerId(ticker.getId());
+		curItem.setTickerId(newTicker.getId());
 	}
 
 	private void doCustomerUpdate(Customer curCustomer) {

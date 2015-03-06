@@ -34,7 +34,7 @@
 			</bean>
 		</property>
 	</bean>
-<!--  org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean-->
+
 	<bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
 		<property name="jobClass"
 			value="com.apress.springbatch.chapter6.SpringBatchQuartzJobLauncher" />

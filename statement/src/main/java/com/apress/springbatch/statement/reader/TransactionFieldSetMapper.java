@@ -26,7 +26,7 @@ public class TransactionFieldSetMapper implements FieldSetMapper<Transaction> {
 		Transaction trans = new Transaction();
 		trans.setAccountNumber(fieldSet.readString("accountNumber"));
 		trans.setQuantity(fieldSet.readLong("quantity"));
-		trans.setTicker(fieldSet.readString("stockTicker"));
+		//trans.setTicker(fieldSet.readString("stockTicker"));
 		trans.setTradeTimestamp(fieldSet.readDate("timestamp",
 				"yyyy-MM-dd HH:mm:ss"));
 		trans.setDollarAmount(fieldSet.readBigDecimal("price"));
