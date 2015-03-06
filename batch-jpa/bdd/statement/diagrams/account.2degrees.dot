@@ -1,0 +1,58 @@
+// dot 2.36.0 on Mac OS X 10.10.2
+// SchemaSpy rev Unknown
+digraph "twoDegreesRelationshipsDiagram" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "account":"account_id":w -> "statement.account":"account_id":e [arrowhead=none dir=back arrowtail=teeodot];
+  "account":"customer_id":w -> "statement.customer":"customer_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "transaction":"elipses":w -> "statement.account":"account_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "account" [
+    label=<
+    <TABLE BORDER="2" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">account</TD></TR>
+      <TR><TD PORT="account_id" COLSPAN="2" BGCOLOR="#bed1b8" ALIGN="LEFT">account_id</TD><TD PORT="account_id.type" ALIGN="LEFT">bigint[19]</TD></TR>
+      <TR><TD PORT="accountnumber" COLSPAN="2" ALIGN="LEFT">accountnumber</TD><TD PORT="accountnumber.type" ALIGN="LEFT">varchar[255]</TD></TR>
+      <TR><TD PORT="cashBalance" COLSPAN="2" ALIGN="LEFT">cashBalance</TD><TD PORT="cashBalance.type" ALIGN="LEFT">decimal[19,2]</TD></TR>
+      <TR><TD PORT="customer_id" COLSPAN="2" BGCOLOR="#f4f7da" ALIGN="LEFT">customer_id</TD><TD PORT="customer_id.type" ALIGN="LEFT">bigint[19]</TD></TR>
+      <TR><TD PORT="tier" COLSPAN="2" ALIGN="LEFT">tier</TD><TD PORT="tier.type" ALIGN="LEFT">int[10]</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">&lt; 2</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">0 &gt;</TD></TR>
+    </TABLE>>
+    URL="account.html"
+    tooltip="account"
+  ];
+  "statement.customer" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">statement.customer</TD></TR>
+      <TR><TD PORT="customer_id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">customer_id</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">1 &gt;</TD></TR>
+    </TABLE>>
+    tooltip="statement.customer"
+  ];
+  "transaction" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">transaction</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">&lt; 2</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="transaction.html"
+    tooltip="transaction"
+  ];
+}

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="jdbc:mysql://localhost:3306/statement" type="MySQL - 5.6.23">
+   <tables>
+      <table catalog="statement" name="account" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="account_id" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent catalog="statement" column="account_id" foreignKey="FK_4lde57f579n315au55ua4gqxk" implied="false" onDeleteCascade="false" table="account"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="accountnumber" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="2" name="cashBalance" nullable="true" remarks="" size="19" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="3" name="customer_id" nullable="true" remarks="" size="19" type="BIGINT">
+            <parent catalog="statement" column="customer_id" foreignKey="FK_q6ux6is14rkik374noo9xwo5" implied="false" onDeleteCascade="false" table="customer"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="tier" nullable="true" remarks="" size="10" type="INT"/>
+         <primaryKey column="account_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="account_id"/>
+         </index>
+         <index name="FK_4lde57f579n315au55ua4gqxk" unique="false">
+            <column ascending="true" name="account_id"/>
+         </index>
+         <index name="FK_q6ux6is14rkik374noo9xwo5" unique="false">
+            <column ascending="true" name="customer_id"/>
+         </index>
+      </table>
+      <table catalog="statement" name="BATCH_JOB_EXECUTION" numRows="15" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="JOB_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="VERSION" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="2" name="JOB_INSTANCE_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent catalog="statement" column="JOB_INSTANCE_ID" foreignKey="JOB_INST_EXEC_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_INSTANCE"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="CREATE_TIME" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="4" name="START_TIME" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="END_TIME" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="6" name="STATUS" nullable="true" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="EXIT_CODE" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="EXIT_MESSAGE" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="LAST_UPDATED" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="10" name="JOB_CONFIGURATION_LOCATION" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <primaryKey column="JOB_EXECUTION_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="JOB_EXECUTION_ID"/>
+         </index>
+         <index name="JOB_INST_EXEC_FK" unique="false">
+            <column ascending="true" name="JOB_INSTANCE_ID"/>
+         </index>
+      </table>
+      <table catalog="statement" name="BATCH_JOB_EXECUTION_CONTEXT" numRows="15" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="JOB_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent catalog="statement" column="JOB_EXECUTION_ID" foreignKey="JOB_EXEC_CTX_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="SHORT_CONTEXT" nullable="false" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="SERIALIZED_CONTEXT" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <primaryKey column="JOB_EXECUTION_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="JOB_EXECUTION_ID"/>
+         </index>
+      </table>
+      <table catalog="statement" name="BATCH_JOB_EXECUTION_PARAMS" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="JOB_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent catalog="statement" column="JOB_EXECUTION_ID" foreignKey="JOB_EXEC_PARAMS_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="TYPE_CD" nullable="false" remarks="" size="6" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="KEY_NAME" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="STRING_VAL" nullable="true" remarks="" size="250" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="DATE_VAL" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="LONG_VAL" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="6" name="DOUBLE_VAL" nullable="true" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="7" name="IDENTIFYING" nullable="false" remarks="" size="1" type="CHAR"/>
+         <index name="JOB_EXEC_PARAMS_FK" unique="false">
+            <column ascending="true" name="JOB_EXECUTION_ID"/>
+         </index>
+      </table>
+      <table catalog="statement" name="BATCH_JOB_EXECUTION_SEQ" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="ID" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="UNIQUE_KEY" nullable="false" remarks="" size="1" type="CHAR"/>
+         <index name="UNIQUE_KEY_UN" unique="true">
+            <column ascending="true" name="UNIQUE_KEY"/>
+         </index>
+      </table>
+      <table catalog="statement" name="BATCH_JOB_INSTANCE" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="JOB_INSTANCE_ID" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="VERSION" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="2" name="JOB_NAME" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="JOB_KEY" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <primaryKey column="JOB_INSTANCE_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="JOB_INSTANCE_ID"/>
+         </index>
+         <index name="JOB_INST_UN" unique="true">
+            <column ascending="true" name="JOB_NAME"/>
+            <column ascending="true" name="JOB_KEY"/>
+         </index>
+      </table>
+      <table catalog="statement" name="BATCH_JOB_SEQ" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="ID" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="UNIQUE_KEY" nullable="false" remarks="" size="1" type="CHAR"/>
+         <index name="UNIQUE_KEY_UN" unique="true">
+            <column ascending="true" name="UNIQUE_KEY"/>
+         </index>
+      </table>
+      <table catalog="statement" name="BATCH_STEP_EXECUTION" numRows="15" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="STEP_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="VERSION" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="2" name="STEP_NAME" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="JOB_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent catalog="statement" column="JOB_EXECUTION_ID" foreignKey="JOB_EXEC_STEP_FK" implied="false" onDeleteCascade="false" table="BATCH_JOB_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="START_TIME" nullable="false" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="END_TIME" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="6" name="STATUS" nullable="true" remarks="" size="10" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="COMMIT_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="8" name="READ_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="9" name="FILTER_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="10" name="WRITE_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="11" name="READ_SKIP_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="12" name="WRITE_SKIP_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="13" name="PROCESS_SKIP_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="14" name="ROLLBACK_COUNT" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="15" name="EXIT_CODE" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="EXIT_MESSAGE" nullable="true" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="LAST_UPDATED" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <primaryKey column="STEP_EXECUTION_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="STEP_EXECUTION_ID"/>
+         </index>
+         <index name="JOB_EXEC_STEP_FK" unique="false">
+            <column ascending="true" name="JOB_EXECUTION_ID"/>
+         </index>
+      </table>
+      <table catalog="statement" name="BATCH_STEP_EXECUTION_CONTEXT" numRows="15" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="STEP_EXECUTION_ID" nullable="false" remarks="" size="19" type="BIGINT">
+            <parent catalog="statement" column="STEP_EXECUTION_ID" foreignKey="STEP_EXEC_CTX_FK" implied="false" onDeleteCascade="false" table="BATCH_STEP_EXECUTION"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="SHORT_CONTEXT" nullable="false" remarks="" size="2500" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="SERIALIZED_CONTEXT" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <primaryKey column="STEP_EXECUTION_ID" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="STEP_EXECUTION_ID"/>
+         </index>
+      </table>
+      <table catalog="statement" name="BATCH_STEP_EXECUTION_SEQ" numRows="1" remarks="" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="ID" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="UNIQUE_KEY" nullable="false" remarks="" size="1" type="CHAR"/>
+         <index name="UNIQUE_KEY_UN" unique="true">
+            <column ascending="true" name="UNIQUE_KEY"/>
+         </index>
+      </table>
+      <table catalog="statement" name="customer" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="customer_id" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="address1" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="city" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="state" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="zip" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="firstname" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="lastname" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="ssn" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="taxid" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <primaryKey column="customer_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="customer_id"/>
+         </index>
+      </table>
+      <table catalog="statement" name="ticker" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="ticker_id" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="2" id="1" name="currentprice" nullable="true" remarks="" size="19" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="tc" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <primaryKey column="ticker_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="ticker_id"/>
+         </index>
+      </table>
+      <table catalog="statement" name="transaction" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="transaction_id" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="1" name="accountId" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="2" name="accountNumber" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="3" name="dollaramount" nullable="true" remarks="" size="19" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="4" name="executedtime" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="5" name="fee" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="quantity" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="7" name="tickerId" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="8" name="tradetimestamp" nullable="true" remarks="" size="19" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="9" name="transactiontype" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="10" name="type" nullable="true" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="11" name="account_id" nullable="true" remarks="" size="19" type="BIGINT">
+            <parent catalog="statement" column="account_id" foreignKey="FK_syue16450hrqk910w0if4e778" implied="false" onDeleteCascade="false" table="account"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="12" name="ticker_id" nullable="true" remarks="" size="19" type="BIGINT">
+            <parent catalog="statement" column="ticker_id" foreignKey="FK_ocsrbo97xdo28v6i4i2xl07wm" implied="false" onDeleteCascade="false" table="ticker"/>
+         </column>
+         <primaryKey column="transaction_id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="transaction_id"/>
+         </index>
+         <index name="FK_ocsrbo97xdo28v6i4i2xl07wm" unique="false">
+            <column ascending="true" name="ticker_id"/>
+         </index>
+         <index name="FK_syue16450hrqk910w0if4e778" unique="false">
+            <column ascending="true" name="account_id"/>
+         </index>
+      </table>
+   </tables>
+</database>

@@ -1,0 +1,44 @@
+// dot 2.36.0 on Mac OS X 10.10.2
+// SchemaSpy rev Unknown
+digraph "oneDegreeRelationshipsDiagram" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "BATCH_STEP_EXECUTION_CONTEXT":"STEP_EXECUTION_ID":w -> "statement.BATCH_STEP_EXECUTION":"STEP_EXECUTION_ID":e [arrowhead=none dir=back arrowtail=teeodot];
+  "statement.BATCH_STEP_EXECUTION" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">statement.BATCH_STEP_EXECUTION</TD></TR>
+      <TR><TD PORT="STEP_EXECUTION_ID" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">STEP_EXECUTION_ID</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">1 &gt;</TD></TR>
+    </TABLE>>
+    tooltip="statement.BATCH_STEP_EXECUTION"
+  ];
+  "BATCH_STEP_EXECUTION_CONTEXT" [
+    label=<
+    <TABLE BORDER="2" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">BATCH_STEP_EXECUTION_CONTEXT</TD></TR>
+      <TR><TD PORT="STEP_EXECUTION_ID" COLSPAN="2" BGCOLOR="#bed1b8" ALIGN="LEFT">STEP_EXECUTION_ID</TD><TD PORT="STEP_EXECUTION_ID.type" ALIGN="LEFT">bigint[19]</TD></TR>
+      <TR><TD PORT="SHORT_CONTEXT" COLSPAN="2" ALIGN="LEFT">SHORT_CONTEXT</TD><TD PORT="SHORT_CONTEXT.type" ALIGN="LEFT">varchar[2500]</TD></TR>
+      <TR><TD PORT="SERIALIZED_CONTEXT" COLSPAN="2" ALIGN="LEFT">SERIALIZED_CONTEXT</TD><TD PORT="SERIALIZED_CONTEXT.type" ALIGN="LEFT">text[65535]</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">15 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">0 &gt;</TD></TR>
+    </TABLE>>
+    URL="BATCH_STEP_EXECUTION_CONTEXT.html"
+    tooltip="BATCH_STEP_EXECUTION_CONTEXT"
+  ];
+}

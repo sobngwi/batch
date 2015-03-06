@@ -1,0 +1,136 @@
+// dot 2.36.0 on Mac OS X 10.10.2
+// SchemaSpy rev Unknown
+digraph "compactRelationshipsDiagram" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "statement.account" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">statement.account</TD></TR>
+      <TR><TD PORT="account_id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">account_id</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">2 &gt;</TD></TR>
+    </TABLE>>
+    tooltip="statement.account"
+  ];
+  "statement.BATCH_JOB_EXECUTION" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">statement.BATCH_JOB_EXECUTION</TD></TR>
+      <TR><TD PORT="JOB_EXECUTION_ID" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">JOB_EXECUTION_ID</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">3 &gt;</TD></TR>
+    </TABLE>>
+    tooltip="statement.BATCH_JOB_EXECUTION"
+  ];
+  "BATCH_JOB_EXECUTION_CONTEXT" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">BATCH_JOB_EXECUTION_CONTEXT</TD></TR>
+      <TR><TD PORT="JOB_EXECUTION_ID" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">JOB_EXECUTION_ID</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">15 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/BATCH_JOB_EXECUTION_CONTEXT.html"
+    tooltip="BATCH_JOB_EXECUTION_CONTEXT"
+  ];
+  "BATCH_JOB_EXECUTION_PARAMS" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">BATCH_JOB_EXECUTION_PARAMS</TD></TR>
+      <TR><TD PORT="JOB_EXECUTION_ID" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">JOB_EXECUTION_ID</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/BATCH_JOB_EXECUTION_PARAMS.html"
+    tooltip="BATCH_JOB_EXECUTION_PARAMS"
+  ];
+  "statement.BATCH_JOB_INSTANCE" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">statement.BATCH_JOB_INSTANCE</TD></TR>
+      <TR><TD PORT="JOB_INSTANCE_ID" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">JOB_INSTANCE_ID</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">1 &gt;</TD></TR>
+    </TABLE>>
+    tooltip="statement.BATCH_JOB_INSTANCE"
+  ];
+  "statement.BATCH_STEP_EXECUTION" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">statement.BATCH_STEP_EXECUTION</TD></TR>
+      <TR><TD PORT="STEP_EXECUTION_ID" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">STEP_EXECUTION_ID</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">1 &gt;</TD></TR>
+    </TABLE>>
+    tooltip="statement.BATCH_STEP_EXECUTION"
+  ];
+  "BATCH_STEP_EXECUTION_CONTEXT" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">BATCH_STEP_EXECUTION_CONTEXT</TD></TR>
+      <TR><TD PORT="STEP_EXECUTION_ID" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">STEP_EXECUTION_ID</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">15 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/BATCH_STEP_EXECUTION_CONTEXT.html"
+    tooltip="BATCH_STEP_EXECUTION_CONTEXT"
+  ];
+  "statement.customer" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">statement.customer</TD></TR>
+      <TR><TD PORT="customer_id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">customer_id</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">1 &gt;</TD></TR>
+    </TABLE>>
+    tooltip="statement.customer"
+  ];
+  "statement.ticker" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">statement.ticker</TD></TR>
+      <TR><TD PORT="ticker_id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">ticker_id</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">1 &gt;</TD></TR>
+    </TABLE>>
+    tooltip="statement.ticker"
+  ];
+  "transaction" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">transaction</TD></TR>
+      <TR><TD PORT="transaction_id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">transaction_id</TD></TR>
+      <TR><TD PORT="account_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">account_id</TD></TR>
+      <TR><TD PORT="ticker_id" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">ticker_id</TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">&lt; 2</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/transaction.html"
+    tooltip="transaction"
+  ];
+  "account":"account_id":w -> "statement.account":"account_id":e [arrowhead=none dir=back arrowtail=teeodot];
+  "account":"customer_id":w -> "statement.customer":"customer_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "BATCH_JOB_EXECUTION":"JOB_INSTANCE_ID":w -> "statement.BATCH_JOB_INSTANCE":"JOB_INSTANCE_ID":e [arrowhead=none dir=back arrowtail=crowodot];
+  "BATCH_JOB_EXECUTION_CONTEXT":"JOB_EXECUTION_ID":w -> "statement.BATCH_JOB_EXECUTION":"JOB_EXECUTION_ID":e [arrowhead=none dir=back arrowtail=teeodot];
+  "BATCH_JOB_EXECUTION_PARAMS":"JOB_EXECUTION_ID":w -> "statement.BATCH_JOB_EXECUTION":"JOB_EXECUTION_ID":e [arrowhead=none dir=back arrowtail=crowodot];
+  "BATCH_STEP_EXECUTION":"JOB_EXECUTION_ID":w -> "statement.BATCH_JOB_EXECUTION":"JOB_EXECUTION_ID":e [arrowhead=none dir=back arrowtail=crowodot];
+  "BATCH_STEP_EXECUTION_CONTEXT":"STEP_EXECUTION_ID":w -> "statement.BATCH_STEP_EXECUTION":"STEP_EXECUTION_ID":e [arrowhead=none dir=back arrowtail=teeodot];
+  "transaction":"account_id":w -> "statement.account":"account_id":e [arrowhead=none dir=back arrowtail=crowodot];
+  "transaction":"ticker_id":w -> "statement.ticker":"ticker_id":e [arrowhead=none dir=back arrowtail=crowodot];
+}
